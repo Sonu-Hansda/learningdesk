@@ -4,11 +4,11 @@ import Link from "next/link";
 import Image from "next/image";
 import {cn} from "@/lib/utils";
 import {usePathname} from "next/navigation";
-import { SignInButton, SignUpButton, SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
-import { Menu, X } from "lucide-react";
-import { useState } from "react";
+import {SignInButton, SignedIn, SignedOut, UserButton} from "@clerk/nextjs";
+import {Menu, X} from "lucide-react";
+import {useState} from "react";
 
-const navItems: {label:string, href:string}[] = [
+const navItems: { label: string, href: string }[] = [
     {label: 'Home', href: '/'},
     {label: 'Learning Companions', href: '/companions'},
 ];
@@ -34,7 +34,7 @@ const Navbar = () => {
 
             <div className="flex items-center">
                 <Link href="/">
-                    <Image src="/images/logo.svg" width={42} height={42} alt={'logo'} className="z-20 relative" />
+                    <Image src="/images/logo.svg" width={42} height={42} alt={'logo'} className="z-20 relative"/>
                 </Link>
             </div>
 
@@ -44,7 +44,7 @@ const Navbar = () => {
                 onClick={toggleMenu}
                 aria-label="Toggle menu"
             >
-                {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+                {isMenuOpen ? <X size={24}/> : <Menu size={24}/>}
             </button>
 
             {/* Mobile menu */}
@@ -71,16 +71,16 @@ const Navbar = () => {
                     <div className="flex flex-col space-y-4 pt-4 border-t border-gray-100">
                         <SignedOut>
                             <SignInButton>
-                                <button className={'w-full border border-black py-2 px-4 rounded-lg hover:bg-gray-50 transition-colors'}>Sign In</button>
+                                <button
+                                    className={'w-full border border-black py-2 px-4 rounded-lg hover:bg-gray-50 transition-colors cursor-pointer'}>Sign
+                                    In
+                                </button>
                             </SignInButton>
-                            <SignUpButton>
-                                <button className={'w-full border border-black py-2 px-4 rounded-lg hover:bg-gray-50 transition-colors'}>Create Account</button>
-                            </SignUpButton>
                         </SignedOut>
                         <SignedIn>
                             <div className="flex items-center">
                                 <span className="mr-2">Your Account</span>
-                                <UserButton afterSignOutUrl="/" />
+                                <UserButton/>
                             </div>
                         </SignedIn>
                     </div>
@@ -102,15 +102,15 @@ const Navbar = () => {
                     </Link>
                 ))}
                 <SignedOut>
-                    <SignUpButton>
-                        <button className={'hover:text-primary transition-colors'}>Create Account</button>
-                    </SignUpButton>
                     <SignInButton>
-                        <button className={'border border-black py-1.5 px-4 rounded-lg mr-2 hover:bg-gray-50 transition-colors'}>Sign In</button>
+                        <button
+                            className={'border border-black py-1.5 px-4 rounded-lg mr-2 hover:bg-gray-50 transition-colors cursor-pointer'}>Sign
+                            In
+                        </button>
                     </SignInButton>
                 </SignedOut>
                 <SignedIn>
-                    <UserButton afterSignOutUrl="/" />
+                    <UserButton/>
                 </SignedIn>
             </div>
         </nav>
